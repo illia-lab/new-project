@@ -1,0 +1,29 @@
+{
+  "name": "new-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha $(find specs -name '*.spec.*') --file ./mocha.hooks.js --timeout 500000",
+    "driver:update": "selenium-standalone install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illia-lab/new-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/illia-lab/new-project/issues"
+  },
+  "homepage": "https://github.com/illia-lab/new-project#readme",
+  "dependencies": {
+    "assertior": "^0.0.28",
+    "mocha": "^10.2.0",
+    "promod": "^1.7.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.3"
+  }
+}
