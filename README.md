@@ -1,1 +1,1 @@
-# new-project
+# Initial automation project
