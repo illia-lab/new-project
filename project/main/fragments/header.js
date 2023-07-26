@@ -1,6 +1,12 @@
 //@ts-check
 const {BaseFragment} = require('../../../lib')
 
+/**
+ * @typedef {object} HeaderCommonAction
+* @property {null} [sighIn] sighIn
+* @property {null} [sighUp] sighUp
+ */
+
 
 class HeaderFragment extends BaseFragment{
   constructor(root, name) {

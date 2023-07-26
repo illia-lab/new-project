@@ -21,7 +21,8 @@
   "dependencies": {
     "assertior": "^0.0.28",
     "mocha": "^10.2.0",
-    "promod": "^1.7.2"
+    "promod": "^1.7.2",
+    "sat-utils": "^1.10.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.3"
