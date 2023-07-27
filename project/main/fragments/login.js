@@ -1,5 +1,5 @@
 //@ts-check
-const {BaseFragment} = require('../../../lib')
+const {BaseFragment, Text, Input ,Button} = require('../../../lib')
 
 /**
  * @typedef {object} LoginCommonAction
@@ -17,10 +17,11 @@ const {BaseFragment} = require('../../../lib')
 class LoginFragment extends BaseFragment{
   constructor(root, name) {
     super(root, name)
- this.username = this.root.$(`input[placeholder= "Ім'я користувача"]`)
-  this.password = this.root.$(`xpath=//input[@placeholder="пароль"]`)
-  this.sighIn = this.root.$('.btn.btn-primary')
+    this.username = this.init(`input[placeholder= "Ім'я користувача"]`, 'User name field', Input)
+    this.password = this.init(`xpath=//input[@placeholder="пароль"]`, 'Password field', Input)
+    this.sighIn = this.init('.btn.btn-primary', 'Sigh in button', Button)
   }
+
 }
 module.exports = {
   LoginFragment
