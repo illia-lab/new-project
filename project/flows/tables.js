@@ -1,4 +1,5 @@
 // @ts-check
+const {expect} = require('assertior')
 const {pageProvider} = require('../main/pages/provider')
 
 const {tables} = pageProvider
@@ -7,11 +8,12 @@ const {tables} = pageProvider
  * @param {string} username username
  * @returns {Promise<void>}
  */
-async function loginToSystem(username) {
- const { header: {greetingMesssage} } =   await tables.get({header: {greetingMessage: null }});
+async function checkThatUserLoggedInSystem(username) {
+  const {header: {greetingMessage}} = await tables.get({header: {greetingMessage: null}});
+  expect(greetingMessage).stringIncludesSubstring(username);
 }
 module.exports = {
-  loginToSystem,
+ checkThatUserLoggedInSystem,
 }
 
 

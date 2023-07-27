@@ -7,7 +7,7 @@ const {BaseFragment} = require('../../../../../lib')
  */
 /**
  * @typedef {object} HeaderGetResAction
-* @property {string} [greetingMessage] greetingMessage
+*  @property {string} [greetingMessage] greetingMessage
  */
 
 

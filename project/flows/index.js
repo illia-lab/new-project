@@ -1,9 +1,11 @@
 //@ts-check
 const mainFlows = require('./main')
+const tablesFlows = require('./tables')
 const {prettifyCamelCase} = require('sat-utils')
 
 const initFlows = {
-  ...mainFlows
+  ...mainFlows,
+  ...tablesFlows
 }
 
 Object.keys(initFlows).forEach((flowName) => {
@@ -11,7 +13,7 @@ Object.keys(initFlows).forEach((flowName) => {
   const fn = initFlows[flowName];
   initFlows[flowName] = async function(...args) {
 // TODO add logger/reporting system
-    console.log(`I ${prettyName}e`);
+    console.log(`I ${prettyName}`);
     return fn.call(this, ...args)
 }
 })
@@ -19,7 +21,7 @@ Object.keys(initFlows).forEach((flowName) => {
 
 
 const I = {
-...mainFlows
+...initFlows
 }
 
 module.exports = {
