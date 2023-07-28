@@ -4,8 +4,15 @@ const {BaseFragment, Text, Input ,Button} = require('../../../lib')
 /**
  * @typedef {object} LoginCommonAction
 * @property {null} [username] username
-* @property {null} [password] password
+* @property {null} [password] email
 * @property {null} [sighIn] sighIn
+ */
+
+ /**
+ * @typedef {object} LoginGetResAction
+* @property {string} [username] username
+* @property {string} [password] email
+* @property {string} [sighIn] sighIn
  */
 
 /**

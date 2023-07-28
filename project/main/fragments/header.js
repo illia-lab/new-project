@@ -1,5 +1,5 @@
 //@ts-check
-const {BaseFragment} = require('../../../lib')
+const {BaseFragment, Button} = require('../../../lib')
 
 /**
  * @typedef {object} HeaderCommonAction
@@ -11,8 +11,8 @@ const {BaseFragment} = require('../../../lib')
 class HeaderFragment extends BaseFragment{
   constructor(root, name) {
     super(root, name)
-    this.sighIn = this.root.$('button:nth-child(1)')
-    this.sighUp = this.root.$('button:nth-child(2)')
+    this.sighIn = this.init('button:nth-child(1)','Sigh In button', Button)
+    this.sighUp = this.init('button:nth-child(2)','Sigh Up button', Button)
   }
 }
 module.exports = {
