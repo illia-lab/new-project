@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha $(find specs -name '*.spec.*') --file ./mocha.hooks.js --timeout 500000",
+    "test:allure": "mocha $(find specs -name '*.spec.*') --file ./mocha.hooks.js --timeout 500000 -R allure-mocha --reporter-option '{}'",
     "driver:update": "selenium-standalone install"
   },
   "repository": {
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/illia-lab/new-project#readme",
   "dependencies": {
+    "allure-mocha": "^2.4.0",
     "assertior": "^0.0.28",
     "mocha": "^10.2.0",
     "promod": "^1.7.2",
