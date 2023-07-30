@@ -7,7 +7,11 @@ const pageProvider = {
   get tables() {
     const {getTables} = require('./tables/page')
     return getTables();
-}
+  },
+  get admin() {
+    const {getAdmin} = require('./admin/page');
+    return getAdmin();
+ }
 
 }
 

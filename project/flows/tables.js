@@ -12,8 +12,14 @@ async function checkThatUserLoggedInSystem(username) {
   const {header: {greetingMessage}} = await tables.get({header: {greetingMessage: null}});
   expect(greetingMessage).stringIncludesSubstring(username);
 }
+
+async function navigateToAdmin() {
+  await tables.click({header: {toAdmin: null}});
+}
+
 module.exports = {
- checkThatUserLoggedInSystem,
+  checkThatUserLoggedInSystem,
+  navigateToAdmin,
 }
 
 

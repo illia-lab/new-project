@@ -1,29 +1,27 @@
 //@ts-check
-const mainFlows = require('./main')
-const tablesFlows = require('./tables')
-const {prettifyCamelCase} = require('sat-utils')
-const {step} = require('../../lib')
+const mainFlows = require('./main');
+const tablesFlows = require('./tables');
+const { prettifyCamelCase } = require('sat-utils');
+
+const { step } = require('../../lib');
 const initFlows = {
   ...mainFlows,
-  ...tablesFlows
-}
+  ...tablesFlows,
+};
 
-Object.keys(initFlows).forEach((flowName) => {
+Object.keys(initFlows).forEach(flowName => {
   const prettyName = prettifyCamelCase(flowName);
   const fn = initFlows[flowName];
-  initFlows[flowName] = async function(...args) {
+
+  initFlows[flowName] = async function (...args) {
     return step(`I ${prettyName}`, () => fn.call(this, ...args), ...args);
-
-
-}
-})
-
-
+  };
+});
 
 const I = {
-...initFlows
-}
+  ...initFlows,
+};
 
 module.exports = {
-  I
-}
+  I,
+};
