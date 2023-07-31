@@ -18,18 +18,18 @@ const { main } = pageProvider;
  * @returns {Promise<void>}
  */
 async function loginToSystem(userData = {}) {
-
   await main.click({ header: { sighIn: null } });
 
   await main.sendKeys({ login: userData });
 
   await main.click({ login: { sighIn: null } });
-
 }
 
 /**
  * @param {object} userData
  * @param {string|number} [userData.username] username
+ * @param {string|number} [userData.personalname] personalname
+ * @param {string|number} [userData.email] email
  * @param {string|number} [userData.password] password
  * @returns {Promise<void>}
  */
