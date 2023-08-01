@@ -1,8 +1,8 @@
 //@ts-check
-const {BasePage} = require('../../../lib')
-const{HeaderFragment} = require('../fragments/header')
-const{LoginFragment} = require('../fragments/login')
-const {RegistrationFragment} = require('../fragments/registration')
+const { BasePage } = require('../../../lib');
+const { HeaderFragment } = require('../fragments/header');
+const { LoginFragment } = require('../fragments/login');
+const { RegistrationFragment } = require('../fragments/registration');
 
 /**
  * @typedef {import ('../fragments/registration').RegistrationCommonAction} RegistrationCommonAction
@@ -23,25 +23,25 @@ const {RegistrationFragment} = require('../fragments/registration')
  * register?: RegistrationSendKeysAction
  * }) => Promise<void>} sendKeys sendKeys method
  * @property {(data:{
-* login?: LoginCommonAction
-* register?: RegistrationCommonAction
-* header?: HeaderCommonAction
-* }) => Promise<void>} click click method
-* @property {(data:{
-  * login?: LoginCommonAction
-  * register?: RegistrationCommonAction
-  * header?: HeaderCommonAction
-  * }) => Promise<{
-  * login?: LoginCommonAction
+ * login?: LoginCommonAction
+ * register?: RegistrationCommonAction
+ * header?: HeaderCommonAction
+ * }) => Promise<void>} click click method
+ * @property {(data:{
+ * login?: LoginCommonAction
+ * register?: RegistrationCommonAction
+ * header?: HeaderCommonAction
+ * }) => Promise<{
+ * login?: LoginCommonAction
  * }>} get get method
  */
 
-class MainPage extends BasePage{
+class MainPage extends BasePage {
   constructor() {
-    super('#main_page', 'Main page')
-    this.header = this.init('.main_header', 'Header', HeaderFragment)
-    this.login = this.init('.login_form', 'Header', LoginFragment)
-    this.register = this.init('.registration_form', 'Header', RegistrationFragment)
+    super('#main_page', 'Main page');
+    this.header = this.init('.main_header', 'Header', HeaderFragment);
+    this.login = this.init('.login_form', 'Header', LoginFragment);
+    this.register = this.init('.registration_form', 'Header', RegistrationFragment);
   }
 }
 /**
@@ -49,9 +49,10 @@ class MainPage extends BasePage{
  * @returns {MainPageInteractionInterface}  interaction interface
  */
 function getMain() {
-return new MainPage()
+  return new MainPage();
 }
 
 module.exports = {
-  MainPage, getMain
-}
+  MainPage,
+  getMain,
+};
