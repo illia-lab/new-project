@@ -9,7 +9,6 @@ describe('Login form', () => {
 
   it.only('[P] Success login', async () => {
     await client.get('http://localhost:4000');
-    throw new Error('this test should fail');
     await I.loginToSystem(adminData);
   });
 
