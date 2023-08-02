@@ -2,14 +2,15 @@
 const { provider } = require('../project');
 
 const { client, I } = provider;
+const { it } = provider.testRunner;
 
 describe('Login form', () => {
   const adminData = { username: 'admin', password: 'admin' };
 
   it.only('[P] Success login', async () => {
     await client.get('http://localhost:4000');
+    throw new Error('this test should fail');
     await I.loginToSystem(adminData);
-    await I.checkThatUserLoggedInSystem(adminData.username);
   });
 
   it('[N] Failed login', async () => {
