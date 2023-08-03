@@ -1,10 +1,17 @@
 //@ts-check
+const { getRandomString } = require('sat-utils');
 const { provider } = require('../project');
-
 const { client, I } = provider;
 const { it } = provider.testRunner;
 
 describe('Login form', () => {
+  it.only('[P] Send feedback', async ({ adminCreds }) => {
+    const username = getRandomString(6);
+    await client.get('http://localhost:4000');
+    await I.sendFeedBackToAdmin({ username, content: '1' });
+    await client.sleep(10000);
+  });
+
   it('[P] Success login', { tags: ['login', 'smoke'] }, async ({ adminCreds }) => {
     await client.get('http://localhost:4000');
     await I.loginToSystem(adminCreds);

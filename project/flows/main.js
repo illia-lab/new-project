@@ -50,8 +50,23 @@ async function checkThatAfterFailedLoginFieldsAreFailed(userData = {}) {
     expect(userData[key]).toEqual(login[key], `Login form ${key} element should have value ${userData[key]}`);
   });
 }
+
+/**
+ * @param {object} feedbackData
+ * @param {boolean}[feedbackData.open] open
+ * @param {string} [feedbackData.username] username
+ * @param {string} [feedbackData.content] content
+ * @param {boolean} [feedbackData.send] send
+ */
+
+async function sendFeedBackToAdmin({ open = true, send, ...messageData }) {
+  if (open) await main.click({ footer: { openForm: null } });
+  await main.sendKeys({ feedbackForm: messageData });
+  if (send) await main.click({ feedbackForm: { send: null } });
+}
 module.exports = {
   loginToSystem,
   registerInSystem,
   checkThatAfterFailedLoginFieldsAreFailed,
+  sendFeedBackToAdmin,
 };
