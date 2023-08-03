@@ -5,21 +5,20 @@ const { client, I } = provider;
 const { it } = provider.testRunner;
 
 describe('Login form', () => {
-  const adminData = { username: 'admin', password: 'admin' };
-
-  it.only('[P] Success login', async () => {
+  it('[P] Success login', { tags: ['login', 'smoke'] }, async ({ adminCreds }) => {
     await client.get('http://localhost:4000');
-    await I.loginToSystem(adminData);
+    await I.loginToSystem(adminCreds);
   });
 
   it('[N] Failed login', async () => {
-    const userData = { username: 'admin21321421', password: 'admin21321421' };
+    const userData = { password: 'admin21321421', username: 'admin21321421' };
     await client.get('http://localhost:4000');
     await I.loginToSystem(userData);
     await I.checkThatAfterFailedLoginFieldsAreFailed(userData);
   });
 
   it('[P] Admin creates new user', async () => {
+    const adminData = { password: 'admin', username: 'admin' };
     await client.get('http://localhost:4000');
     await I.loginToSystem(adminData);
     await I.navigateToAdmin();
