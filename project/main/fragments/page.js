@@ -3,7 +3,7 @@ const { BasePage } = require('../../../lib');
 const { HeaderFragment } = require('../fragments/header');
 const { LoginFragment } = require('../fragments/login');
 const { RegistrationFragment } = require('../fragments/registration');
-const { FooterFragment } = require('./footer');
+const { FooterFragment } = require('../pages/shared_fragments/footer');
 const { MessageFormFragment } = require('../pages/shared_fragments/message.form');
 
 /**
@@ -18,7 +18,7 @@ const { MessageFormFragment } = require('../pages/shared_fragments/message.form'
  * @typedef {import ('../pages/shared_fragments/message.form').MessageFormGetResAction} MessageFormGetResAction
  * @typedef {import ('../pages/shared_fragments/message.form').MessageFormSendKeys} MessageFormSendKeys
  * @typedef {import ('../fragments/header').HeaderCommonAction} HeaderCommonAction
- * @typedef {import ('../fragments/footer').FooterCommonAction} FooterCommonAction
+ * @typedef {import ('../pages/shared_fragments/footer').FooterCommonAction} FooterCommonAction
  *
  */
 
@@ -53,7 +53,7 @@ class MainPage extends BasePage {
     this.header = this.init('.main_header', 'Header', HeaderFragment);
     this.login = this.init('.login_form', 'Header', LoginFragment);
     this.register = this.init('.registration_form', 'Header', RegistrationFragment);
-    this.footer = this.init('xpath=//*[@id="main_page]/div[last()]', 'Footer', FooterFragment);
+    this.footer = this.init('xpath=//*[@id="main_page"]/div[last()]', 'Footer', FooterFragment);
     this.feedbackForm = this.init('.message_modal', 'Feedback Form', MessageFormFragment);
   }
 }

@@ -1,5 +1,5 @@
 //@ts-check
-const { BaseFragment, Button } = require('../../../lib');
+const { BaseFragment, Button } = require('../../../../lib');
 
 /**
  * @typedef {object} FooterCommonAction

@@ -59,7 +59,7 @@ async function checkThatAfterFailedLoginFieldsAreFailed(userData = {}) {
  * @param {boolean} [feedbackData.send] send
  */
 
-async function sendFeedBackToAdmin({ open = true, send, ...messageData }) {
+async function sendFeedBackToAdmin({ open = true, send = true, ...messageData }) {
   if (open) await main.click({ footer: { openForm: null } });
   await main.sendKeys({ feedbackForm: messageData });
   if (send) await main.click({ feedbackForm: { send: null } });
