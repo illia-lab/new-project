@@ -41,12 +41,19 @@ async function checkThatUserInUsersList(username) {
   @param {boolean} [messageData.send] send
  */
 
-async function answerOnMessage({ open = true, username, send, ...messageData }) {
-  if (open) await admin.click({ footer: { openForm: null } });
-  if (username)
+async function answerOnMessage({ open = true, username, send = true, ...messageData }) {
+  if (open) {
+    await admin.click({ footer: { openForm: null } });
+  }
+  if (username) {
     await admin.click({ messageForm: { sessions: { action: { username: null }, username: { _element: username } } } });
+  }
+
   await admin.sendKeys({ messageForm: messageData });
-  if (send) await admin.click({ messageForm: { send: null } });
+
+  if (send) {
+    await admin.click({ messageForm: { send: null } });
+  }
 }
 
 module.exports = {

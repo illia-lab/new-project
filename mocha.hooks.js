@@ -9,10 +9,9 @@ before(async function () {
 
   await getDriver(browser);
 
-  // i am not a big fan of global object usage, but if it is suitable for you, just add API to global
   global.browser = browser;
 });
 
 after(async function () {
-  await global.browser.quit();
+  await global.browser.quitAll();
 });

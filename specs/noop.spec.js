@@ -6,17 +6,20 @@ const { it } = provider.testRunner;
 
 describe('Login form', () => {
   it.only('[P] Send feedback', async ({ adminCreds }) => {
+    const username = getRandomString(11);
+    const adminAnswer = 'How cam i help you?';
+    await client.get('http://localhost:4000');
+    await I.sendFeedBackToAdmin({ username, content: '1' });
+    await client.runNewBrowser();
     await client.get('http://localhost:4000');
     await I.loginToSystem(adminCreds);
     await I.navigateToAdmin();
     await client.switchToTab({ title: 'Адмінська сторінка' });
-    await I.answerOnMessage({ username: 'test name', content: 'How cam i help you' });
+    await I.answerOnMessage({ username, content: adminAnswer });
 
-    // const username = getRandomString(6);
-    // await client.get('http://localhost:4000');
-    //await I.sendFeedBackToAdmin({ username, content: '1' });
+    await client.switchToBrowser({ index: 0 });
 
-    await client.sleep(10000);
+    await I.checkThatAdminAnswerOnMyMessage({ refresh: true, content: adminAnswer });
   });
 
   it('[P] Success login', { tags: ['login', 'smoke'] }, async ({ adminCreds }) => {
