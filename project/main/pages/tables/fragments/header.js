@@ -18,6 +18,7 @@ const { BaseFragment, Text, Button } = require('../../../../../lib');
 class HeaderFragment extends BaseFragment {
   constructor(root, name) {
     super(root, name);
+
     this.greetingMessage = this.init('h3', 'Greeting message', Text);
     this.toAdmin = this.init('a[href="/admin"] button', 'To admin page', Button);
   }

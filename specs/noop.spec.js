@@ -6,9 +6,16 @@ const { it } = provider.testRunner;
 
 describe('Login form', () => {
   it.only('[P] Send feedback', async ({ adminCreds }) => {
-    const username = getRandomString(6);
     await client.get('http://localhost:4000');
-    await I.sendFeedBackToAdmin({ username, content: '1' });
+    await I.loginToSystem(adminCreds);
+    await I.navigateToAdmin();
+    await client.switchToTab({ title: 'Адмінська сторінка' });
+    await I.answerOnMessage({ username: 'test name', content: 'How cam i help you' });
+
+    // const username = getRandomString(6);
+    // await client.get('http://localhost:4000');
+    //await I.sendFeedBackToAdmin({ username, content: '1' });
+
     await client.sleep(10000);
   });
 
@@ -29,9 +36,7 @@ describe('Login form', () => {
     await client.get('http://localhost:4000');
     await I.loginToSystem(adminData);
     await I.navigateToAdmin();
-    await client.sleep(10_000);
     await client.switchToTab({ title: 'Адмінська сторінка' });
-
     await I.createNewUserOnAdminPage({
       username: 'test2',
       personalname: 'test2',

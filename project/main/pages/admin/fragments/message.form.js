@@ -16,8 +16,12 @@ const { SessionItemFragment } = require('./session.item');
  */
 
 /**
- * @typedef {object & MessageFormCommonAction} AdminMessageFormCommonAction
- * @property {{index?: number; action: SessionItemCommonAction;} & SessionItemGetResAction} [session] session
+ *
+ *  @typedef {{sessions?: {index?: number; action: SessionItemCommonAction;} & SessionItemGetResAction}} ExtendedAdminMessageFormCommonAction
+ */
+
+/**
+ * @typedef   {MessageFormCommonAction & ExtendedAdminMessageFormCommonAction} AdminMessageFormCommonAction
  */
 
 /**
@@ -28,7 +32,7 @@ const { SessionItemFragment } = require('./session.item');
 class AdminMessageFormFragment extends MessageFormFragment {
   constructor(root, name) {
     super(root, name);
-    this.session = this.init('.text-left > button', 'Session', Collection, SessionItemFragment);
+    this.sessions = this.init('.text-left > button', 'Session', Collection, SessionItemFragment);
   }
 }
 module.exports = {

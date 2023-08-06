@@ -7,9 +7,12 @@ const { FooterFragment } = require('../shared_fragments/footer');
 const { AdminMessageFormFragment } = require('./fragments/message.form');
 
 /**
- * @typedef {import ('../shared_fragments/footer').FooterCommonAction} FooterCommonAction
+
  * @typedef {import ('./fragments/message.form').AdminMessageFormCommonAction} AdminMessageFormCommonAction
  * @typedef {import ('./fragments/message.form').AdminMessageFormSendKeys} AdminMessageFormSendKeys
+ *
+ *  @typedef {import ('../shared_fragments/footer').FooterCommonAction} FooterCommonAction
+ *
  * @typedef {import ('./fragments/new.user').UserFormCommonAction} UserFormCommonAction
  * @typedef {import ('./fragments/new.user').UserFormSendKeysAction} UserFormSendKeysAction
  * @typedef {import ('./fragments/new.user').UserFormGetResAction} UserFormGetResAction
@@ -53,7 +56,7 @@ class AdminPage extends BasePage {
     this.userForm = this.init('.admin_new_user', 'New user creation form', UserFormFragment);
     this.usersList = this.init('.admin_user_list_root', 'Users list', UsersListFragment);
     this.footer = this.init('xpath=//*[@id="admin_page"]/div[last()]', 'Footer', FooterFragment);
-    this.messageForm = this.init('.message_modal', 'Admin message form', AdminMessageFormFragment);
+    this.messageForm = this.init('.message_modal', 'Admin messages form', AdminMessageFormFragment);
   }
 }
 /**

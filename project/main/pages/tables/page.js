@@ -36,7 +36,6 @@ class TablesPage extends BasePage {
   }
 }
 /**
- *
  * @returns {TablePageInteractionInterface}  interaction interface
  */
 function getTables() {
